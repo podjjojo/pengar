@@ -104,3 +104,5 @@ nav .fab{flex:none;width:52px;height:52px;min-height:52px;padding:0;margin:2px 1
 .banner.warm{background:var(--warm)}.banner.warm .small{color:var(--warm-ink)}
 .chk2{cursor:pointer}.chk2 input{flex:none}
 @media (prefers-color-scheme:dark){.chip.good{background:#1E3A2E}}
+.rowbtn{width:100%;background:transparent;color:var(--ink);justify-content:flex-start;text-align:left;font-weight:400;border-radius:0;padding:6px 0}
+details.card>summary{cursor:pointer;font-weight:600;min-height:32px;display:flex;align-items:center}
