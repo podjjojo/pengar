@@ -96,3 +96,11 @@ nav .fab{flex:none;width:52px;height:52px;min-height:52px;padding:0;margin:2px 1
 @media (prefers-reduced-motion:reduce){*{transition:none!important}button:active{transform:none}}
 .calc>summary{color:var(--accent);font-weight:600;font-size:14px;cursor:pointer;min-height:32px;display:flex;align-items:center}
 .lbl{font-weight:600;font-size:16px;margin-top:-4px}
+.chips{display:flex;flex-direction:column;gap:8px}
+.chip{border-radius:14px;padding:10px 14px;background:var(--tile);display:flex;flex-direction:column;gap:1px;font-size:13px}
+.chip b{font-size:14px}.chip span{color:var(--muted)}
+.chip.good{background:#DDEDE3}.chip.good b{color:var(--accent)}
+.chip.bad{background:var(--warm)}.chip.bad b{color:var(--warm-ink)}
+.banner.warm{background:var(--warm)}.banner.warm .small{color:var(--warm-ink)}
+.chk2{cursor:pointer}.chk2 input{flex:none}
+@media (prefers-color-scheme:dark){.chip.good{background:#1E3A2E}}
