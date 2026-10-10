@@ -123,3 +123,24 @@ nav>*{max-width:96px}
 .spark{width:100%;height:84px;display:block}
 .spark .under{fill:var(--accent)}.spark .over{fill:var(--bad)}
 .spark .ref{stroke:var(--ink);stroke-width:.6;stroke-dasharray:2 1.5;vector-effect:non-scaling-stroke;opacity:.55}
+.ring{position:relative;width:min(100%,232px);aspect-ratio:1;margin:2px auto 0}
+.ring svg{width:100%;height:100%;display:block}
+.ring .trk{fill:none;stroke:var(--track);stroke-width:14}
+.ring .arc{fill:none;stroke:var(--accent);stroke-width:14;stroke-linecap:round;transition:stroke-dasharray .7s cubic-bezier(.2,.8,.2,1)}
+.ring.low .arc{stroke:#C48A3F}.ring.bad .arc{stroke:var(--bad)}
+.ring .mid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.rbig{font-size:52px;font-weight:700;letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums}
+.ring.bad .rbig{color:var(--bad)}
+.runit{font-size:16px;color:var(--muted);font-weight:500;margin-top:2px}
+.rlbl{font-size:13px;font-weight:600;margin-top:6px;max-width:150px;line-height:1.2}
+.center{text-align:center}
+.runway{width:100%;height:120px;display:block;overflow:visible}
+.runway .act{fill:none;stroke:var(--accent);stroke-width:2;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round}
+.runway .fut{fill:none;stroke:var(--accent);stroke-width:2;stroke-dasharray:3 4;vector-effect:non-scaling-stroke;opacity:.6}
+.runway .zero{stroke:var(--bad);stroke-width:1;stroke-dasharray:2 2;vector-effect:non-scaling-stroke}
+.runway .bill{fill:var(--card);stroke:var(--ink);stroke-width:1;vector-effect:non-scaling-stroke}
+.runway .now{fill:var(--accent);stroke:var(--card);stroke-width:2;vector-effect:non-scaling-stroke}
+.hbtns{display:flex;gap:8px}
+.priv .rbig,.priv .runit,.priv .num,.priv .mini b,.priv .tilebtn b,.priv .chip span,.priv .note span{filter:blur(9px);transition:filter .2s}
+.note{display:flex;align-items:center;justify-content:space-between;gap:8px}
+@media (prefers-reduced-motion:reduce){.ring .arc{transition:none}}
