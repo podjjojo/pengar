@@ -24,3 +24,13 @@ nav button{flex:1;max-width:180px;background:transparent;color:var(--muted);bord
 nav button[aria-current=page]{color:var(--accent);background:var(--card)}
 .top{display:flex;justify-content:space-between;align-items:center}
 .sp{height:8px}
+.sug{padding:10px 0;border-top:1px solid var(--line)}
+.sug:first-of-type{border-top:0}
+.chk{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.chk input{width:auto}
+.big.neg{color:var(--bad)}
+a{color:var(--accent)}
+.newinst{margin-top:8px;border-top:1px solid var(--line);padding-top:8px}
+.newinst label{display:block}
+h3{font-size:15px;margin:16px 0 4px}
+nav button{padding:10px 2px;font-size:13px}
