@@ -115,3 +115,11 @@ details.card>summary{cursor:pointer;font-weight:600;min-height:32px;display:flex
 .mrow>summary{cursor:pointer;display:block}
 .lg{display:inline-flex;align-items:center;gap:6px;font-size:13px;margin-right:12px}.lg i{width:10px;height:10px;border-radius:3px;display:inline-block}
 .legend{display:flex;flex-wrap:wrap;gap:6px 0;padding:10px 0}
+.tilebtn{background:var(--card);border:1px solid var(--line);border-radius:16px;min-height:96px;padding:12px 14px;color:var(--ink);flex-direction:column;align-items:flex-start;justify-content:space-between;text-align:left;font-weight:400;gap:2px}
+.tilebtn span{font-size:12px}.tilebtn b{font-size:20px;font-variant-numeric:tabular-nums}.tilebtn small{font-size:12px;line-height:1.25}
+.sect{margin:6px 2px 0}
+.row.total{border-top:2px solid var(--line)}
+nav>*{max-width:96px}
+.spark{width:100%;height:84px;display:block}
+.spark .under{fill:var(--accent)}.spark .over{fill:var(--bad)}
+.spark .ref{stroke:var(--ink);stroke-width:.6;stroke-dasharray:2 1.5;vector-effect:non-scaling-stroke;opacity:.55}
