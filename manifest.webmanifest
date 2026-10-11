@@ -1,11 +1,11 @@
 {
- "name": "Vardagsekonomi",
- "short_name": "Pengar",
+ "name": "Pontus Kassa",
+ "short_name": "Pontus Kassa",
  "lang": "sv",
  "start_url": "/",
  "display": "standalone",
  "background_color": "#F2F4F0",
- "theme_color": "#1D6B4F",
+ "theme_color": "#05100C",
  "icons": [
   {
    "src": "icon-192.png",
