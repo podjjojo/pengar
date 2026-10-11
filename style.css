@@ -202,3 +202,4 @@ section.card p.small{margin:4px 0}
 .guide{gap:8px}
 .guide p{margin:2px 0}
 .steps{margin:6px 0 10px;padding-left:20px}.steps li{margin:4px 0}
+.cw{display:flex;flex-wrap:wrap;gap:8px}
