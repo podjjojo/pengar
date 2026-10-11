@@ -551,14 +551,14 @@ Summa: ${(r/100).toFixed(2).replace(".",",")} kr`}function xo(){let t=$e.filter(
     <div class="muted small">Sista avbetalningen \xE4r ${d(s)}. D\xE5 f\xF6rsvinner ${m(a)} per m\xE5nad fr\xE5n dina fasta utgifter.</div></section>`}function Co(){let t=U.filter(n=>de.includes(n.kind)),r=-yn(),e=E(),a=ye.filter(n=>!ce({remainingOre:n.remaining_ore,monthlyOre:n.monthly_ore,nextDueOn:n.next_due_on},e).done).reduce((n,s)=>n+s.monthly_ore,0);return`
     ${N("Bol\xE5n, krediter och avbetalningar","Skulder")}
     ${xn("debts")}
-    ${Fe("debts","S\xE5 l\xE4gger du in dina skulder",["L\xE5n och kreditkort: L\xE4gg till kredit l\xE4ngst ner","Delbetalning fr\xE5n Klarna eller Resurs: fyll i kortet Ny delbetalning","\xD6ppna \xC4ndra och specificera p\xE5 l\xE5nen och skriv betalning och r\xE4nta","Avbetalningar f\xF6rsvinner av sig sj\xE4lva n\xE4r de \xE4r betalda"])}
+    ${Fe("debts","S\xE5 l\xE4gger du in dina skulder",["B\xF6rja med skulderna: l\xE4gg in en delbetalning i taget i kortet Ny delbetalning, med egen m\xE5nad och antal f\xF6r var och en","Sedan kan du koppla bankens betalningar: s\xF6k under Hitta skulden och tryck Redan inlagd","L\xE5n och kreditkort: L\xE4gg till kredit l\xE4ngst ner","\xD6ppna \xC4ndra och specificera p\xE5 l\xE5nen och skriv betalning och r\xE4nta","Avbetalningar f\xF6rsvinner av sig sj\xE4lva n\xE4r de \xE4r betalda"])}
     <details class="dashbox" ${Qt?"open":""}><summary>Hitta skulden i mina transaktioner</summary>
-      <p class="muted small">S\xF6k p\xE5 en betalning du gjort, till exempel Resurs, och tryck Delbetalning s\xE5 fylls den i. Bara de tv\xE5 senaste m\xE5naderna visas, \xE4ldre kan redan vara betalda. Klarna-k\xF6p med K* \xE4r oftast vanliga k\xF6p och visas bara n\xE4r du s\xF6ker.</p>
+      <p class="muted small">Har du redan lagt in skulden? S\xF6k p\xE5 betalningen och tryck Redan inlagd, s\xE5 sorteras den som avbetalning. \xC4r skulden inte inlagd \xE4n tryck Delbetalning s\xE5 fylls den i. Bara de tv\xE5 senaste m\xE5naderna visas, \xE4ldre kan redan vara betalda. Klarna-k\xF6p med K* \xE4r oftast vanliga k\xF6p och visas bara n\xE4r du s\xF6ker.</p>
       <input id="debtq" type="search" value="${d(Qt)}" placeholder="S\xF6k p\xE5 namn eller belopp" aria-label="S\xF6k transaktion">
       <div id="debtres">${Cr()}</div></details>
     <form class="card" id="newpart">
       <h2>Ny delbetalning</h2>
-      <p class="muted small">Till exempel Klarna eller Avarda. Skriv per m\xE5nad, hur m\xE5nga betalningar det \xE4r och vilken du \xE4r p\xE5, s\xE5 h\xE4nger skulden med r\xE4tt antal m\xE5nader fram\xE5t.</p>
+      <p class="muted small">L\xE4gg in varje skuld f\xF6r sig, till exempel en Klarna-delbetalning, med egen m\xE5nadssumma och egna antal betalningar. Det g\xE5r att g\xF6ra direkt fr\xE5n Klarna-appen, utan att leta bland transaktionerna. Spara, s\xE5 \xE4r formul\xE4ret tomt f\xF6r n\xE4sta.</p>
       <label for="pn">Vad (till exempel Avarda jul)</label>
       <input id="pn" required value="${d(nt?.name??"")}">
       <label for="pm">Per m\xE5nad (kr)</label>
