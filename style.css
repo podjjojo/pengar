@@ -185,3 +185,7 @@ form.inline .pin{width:120px;min-height:36px}
 .warnline{color:#a5451f}
 button.sm:not(.ghost){color:var(--on-accent);font-weight:600}
 section.card p.small{margin:4px 0}
+.cal-d{position:relative}
+.evdot{position:absolute;bottom:4px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#c0762b}
+.dot.ev{background:#c0762b}
+.seg.wrap{flex-wrap:wrap;gap:6px}
