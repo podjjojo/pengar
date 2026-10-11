@@ -207,3 +207,7 @@ section.card p.small{margin:4px 0}
 .li select{width:auto;flex:0 0 auto;max-width:112px;min-height:40px;padding:6px 10px}
 .li .grow{min-width:90px}
 .li button.sm{flex:0 0 auto;white-space:nowrap}
+body.busy::before{content:"";position:fixed;top:0;left:0;height:3px;width:100%;z-index:50;background:linear-gradient(90deg,transparent,var(--accent),transparent);background-size:40% 100%;background-repeat:no-repeat;animation:busybar 1s linear infinite}
+@keyframes busybar{from{background-position:-40% 0}to{background-position:140% 0}}
+button.working{opacity:.65;pointer-events:none}
+button.working::after{content:" …"}
