@@ -211,3 +211,4 @@ body.busy::before{content:"";position:fixed;top:0;left:0;height:3px;width:100%;z
 @keyframes busybar{from{background-position:-40% 0}to{background-position:140% 0}}
 button.working{opacity:.65;pointer-events:none}
 button.working::after{content:" …"}
+[hidden]{display:none!important}
