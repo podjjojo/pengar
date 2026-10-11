@@ -144,3 +144,12 @@ nav>*{max-width:96px}
 .priv .rbig,.priv .runit,.priv .num,.priv .mini b,.priv .tilebtn b,.priv .chip span,.priv .note span{filter:blur(9px);transition:filter .2s}
 .note{display:flex;align-items:center;justify-content:space-between;gap:8px}
 @media (prefers-reduced-motion:reduce){.ring .arc{transition:none}}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 8px}
+.pill{height:38px;padding:0 14px;border-radius:99px;border:1px solid var(--line);background:var(--tile);color:var(--ink);font-size:14px;font-weight:500}
+.pill.on{background:var(--accent);color:var(--on-accent);border-color:transparent;font-weight:600}
+.bigin{font-size:28px;font-weight:700;height:60px}
+.tiles3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.tiles3 .mini{background:var(--tile);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:2px;font-size:12px;color:var(--muted)}
+.tiles3 .mini b{font-size:15px;color:var(--ink)}
+ul.plain{padding-left:18px;margin:8px 0;display:flex;flex-direction:column;gap:6px;font-size:14px}
+details.card summary{cursor:pointer}
