@@ -189,3 +189,10 @@ section.card p.small{margin:4px 0}
 .evdot{position:absolute;bottom:4px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:#c0762b}
 .dot.ev{background:#c0762b}
 .seg.wrap{flex-wrap:wrap;gap:6px}
+.evc{padding:12px 0;border-top:1px solid var(--line)}
+.evc:first-of-type{border-top:0}
+@media print{
+  .noprint,nav,.hbtns,.back,#msg{display:none!important}
+  body{background:#fff!important}
+  .card{box-shadow:none!important;border:0!important}
+}
