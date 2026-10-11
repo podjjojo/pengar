@@ -667,7 +667,7 @@ function Zn(n){if(n.length>1&&n[0]===255&&n[1]===254)return new TextDecoder("utf
     <div class="pills"><button class="pill ${se==="me"?"on":""}" data-act="invwho" data-w="me">Jag</button><button class="pill ${se==="mira"?"on":""}" data-act="invwho" data-w="mira">Mira</button></div>
     <section class="card hero">
       <div class="muted small">${se==="me"?"Mina":"Miras"} investeringar${l?`, uppdaterad ${$?d(new Date($).toLocaleString("sv-SE",{dateStyle:"short",timeStyle:"short"})):"aldrig"}`:c?`, v\xE4rde ${d(C(c.on_date))}`:""}</div>
-      <div class="big">${m!==null?Z(m):"\u2013"}<span>kr</span></div>
+      ${m!==null?`<div class="big">${Z(m)}<span>kr</span></div>`:'<div class="muted">Inga innehav \xE4n. Importera en fil fr\xE5n Nordnet nedan.</div>'}
       ${K}
       <div class="grid2"><div class="mini"><div class="muted">Insatt, netto</div><b>${u(i)}</b></div><div class="mini"><div class="muted">${v>=0?"Vinst":"F\xF6rlust"}</div><b class="${v>=0?"pos":""}">${m!==null?u(v):"\u2013"}${x!==null?` (${x>=0?"+":""}${x.toFixed(1).replace(".",",")} %)`:""}</b></div></div>
       ${l?`<button class="ghost" data-act="quotes" ${Et?"disabled":""}>${Et?"H\xE4mtar kurser\u2026":"H\xE4mta kurser nu"}</button>`:""}
@@ -680,7 +680,7 @@ function Zn(n){if(n.length>1&&n[0]===255&&n[1]===254)return new TextDecoder("utf
       <label for="nnacc">Konto</label>
       <input id="nnacc" list="nnlist" value="${d(o.includes(Dt)?Dt:se==="mira"?"Mira":"Nordnet")}" placeholder="Till exempel ISK, Mira fonder">
       <datalist id="nnlist">${o.map(M=>`<option value="${d(M)}">`).join("")}</datalist>
-      <label class="chk"><input id="nnadd" type="checkbox"> Beh\xE5ll alla andra innehav p\xE5 kontot. Beh\xF6vs normalt inte: aktier och fonder samlas p\xE5 samma konto automatiskt.</label>
+      <details><summary class="small">Avancerat</summary><label class="chk"><input id="nnadd" type="checkbox"> Beh\xE5ll alla andra innehav p\xE5 kontot. Beh\xF6vs normalt inte: aktier och fonder samlas p\xE5 samma konto automatiskt.</label></details>
       <div class="sp"></div>
       <input id="nnfile" type="file" accept=".csv,.txt,text/csv">
     </section>
@@ -707,11 +707,19 @@ function Zn(n){if(n.length>1&&n[0]===255&&n[1]===254)return new TextDecoder("utf
       <input id="saleq" type="search" placeholder="S\xF6k i transaktioner" value="${d(an)}" aria-label="S\xF6k">
       ${g.map(p=>`<div class="li"><div class="grow d"><b>${d(p.description)}</b><div class="muted small">${d(C(p.booked_on))}</div></div><b class="num">${u(p.amount_ore)}</b><button class="ghost sm" data-act="saleaddtx" data-id="${d(p.id)}">L\xE4gg till</button></div>`).join("")}
       ${x&&!g.length?'<p class="muted small">Inga tr\xE4ffar.</p>':""}</details>`,y=ne.filter(p=>p.kind==="renovation");return`${F("F\xF6rs\xE4ljning av bostad","Deklaration","more")}
-    <section class="card"><h2>Resultat</h2>${o}
+    <form class="card" id="saleinfo">
+      <h2>1. F\xF6rs\xE4ljningen</h2>
+      <label for="sdt">Datum f\xF6r k\xF6pekontraktet</label><input id="sdt" type="date" value="${d(q.contract_date)}">
+      <label for="spr">F\xF6rs\xE4ljningspris (kr)</label><input id="spr" inputmode="decimal" value="${q.price_ore?q.price_ore/100:""}" placeholder="0">
+      <label for="ssh">Din \xE4garandel (%)</label><input id="ssh" inputmode="decimal" value="${q.share_pct}">
+      <label for="sot">Andra kapitalinkomster i \xE5r (kr, valfritt)</label><input id="sot" inputmode="decimal" value="${q.other_capital_ore?q.other_capital_ore/100:""}" placeholder="Aktievinster, r\xE4nta">
+      <div class="sp"></div><button type="submit">Spara</button>
+    </form>
+    <section class="card"><h2>2. Resultat</h2>${o}
       <div class="tiles3"><div class="mini"><span>F\xF6rs\xE4ljningsutg.</span><b>${u(n("sell"))}</b></div><div class="mini"><span>K\xF6putgifter</span><b>${u(n("buy"))}</b></div><div class="mini"><span>F\xF6rb\xE4ttringar</span><b>${u(n("improve"))}</b></div></div>
       <p class="muted small">Din \xE4garandel \xE4r ${q.share_pct} %. Delar ni 50/50 med ${I} blir hennes siffror lika dina. Det h\xE4r \xE4r ett underlag och inte skatter\xE5dgivning, kontrollera mot Skatteverket.</p></section>
     <form class="card" id="saleitem">
-      <h2>${i?"\xC4ndra post":"L\xE4gg till kostnad"}</h2>
+      <h2>${i?"\xC4ndra post":"3. L\xE4gg till kostnader"}</h2>
       <div class="pills" role="group" aria-label="Typ av kostnad">${l}</div>
       <label for="sia">Belopp (kr)</label><input id="sia" inputmode="decimal" class="bigin" placeholder="0" value="${i?i.amount_ore/100:""}" required>
       <label for="sil">Beskrivning (valfritt)</label><input id="sil" placeholder="${d(s.hint)}" value="${d(i?.label??"")}">
@@ -728,14 +736,6 @@ function Zn(n){if(n.length>1&&n[0]===255&&n[1]===254)return new TextDecoder("utf
       ${Re.map(p=>`<div class="li"><div class="grow d"><b>${d(p.desc)}</b><div class="muted small">${d(C(p.date))}</div></div><b class="num">${u(p.ore)}</b><button class="ghost sm" data-act="salecand" data-k="${d(p.key)}" data-c="annons">Avdrag</button><button class="ghost sm" data-act="salecand" data-k="${d(p.key)}" data-c="ejavdrag">Ej avdrag</button></div>`).join("")}</details>
     ${y.length?`<section class="card"><h2>Fr\xE5n ett renoveringsprojekt</h2><select id="spj">${y.map(p=>`<option value="${d(p.id)}">${d(p.name)}</option>`).join("")}</select><div class="sp"></div><button class="ghost" data-act="salefromproject">L\xE4gg till som renovering</button></section>`:""}
     ${m}
-    <form class="card" id="saleinfo">
-      <h2>F\xF6rs\xE4ljningen</h2>
-      <label for="sdt">Datum f\xF6r k\xF6pekontraktet</label><input id="sdt" type="date" value="${d(q.contract_date)}">
-      <label for="spr">F\xF6rs\xE4ljningspris (kr)</label><input id="spr" inputmode="decimal" value="${q.price_ore?q.price_ore/100:""}" placeholder="0">
-      <label for="ssh">Din \xE4garandel (%)</label><input id="ssh" inputmode="decimal" value="${q.share_pct}">
-      <label for="sot">Andra kapitalinkomster i \xE5r (kr, valfritt)</label><input id="sot" inputmode="decimal" value="${q.other_capital_ore?q.other_capital_ore/100:""}" placeholder="Aktievinster, r\xE4nta">
-      <div class="sp"></div><button type="submit">Spara</button>
-    </form>
     <section class="card">
       <h2>Att samla ihop</h2>
       <ul class="plain"><li>K\xF6pekontrakt och slutuppg\xF6relse f\xF6r b\xE5de k\xF6p och f\xF6rs\xE4ljning</li><li>M\xE4klarens avr\xE4kningsnota och fakturor f\xF6r f\xF6rs\xE4ljningsutgifter</li><li>Lagfarts- och pantbrevsavgifter fr\xE5n n\xE4r ni k\xF6pte</li><li>Kvitton och fakturor f\xF6r f\xF6rb\xE4ttringar, inte bara kontoutdrag</li><li>Eventuellt uppskov fr\xE5n en tidigare bostad</li></ul>
