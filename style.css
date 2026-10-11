@@ -162,3 +162,9 @@ form.inline .pin{width:120px;min-height:36px}
 .bar i{display:block;height:100%;background:var(--accent,#2f7d5b);border-radius:99px}
 .btnrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 .grp{margin:14px 4px 0;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted,#6b7a72)}
+.tipstep{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:none;border:0;padding:10px 0;font:inherit;color:inherit;border-top:1px solid var(--line)}
+.tipstep .box{flex:none;width:22px;height:22px;border-radius:7px;border:2px solid var(--line);display:grid;place-items:center;font-size:.8rem;color:#fff}
+.tipstep.on .box{background:var(--accent,#1d6b4f);border-color:var(--accent,#1d6b4f)}
+.tipstep.on span:last-child{color:var(--muted,#6b7a72);text-decoration:line-through}
+.chk{display:flex;gap:10px;align-items:flex-start;margin-top:10px}
+.chk input{width:auto;margin-top:3px}
