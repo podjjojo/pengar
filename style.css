@@ -156,3 +156,5 @@ details.card summary{cursor:pointer}
 .sparkbars{display:flex;align-items:flex-end;gap:3px;height:44px}
 .sparkbars i{flex:1;background:var(--accent);opacity:.55;border-radius:3px 3px 0 0;min-width:3px}
 .sparkbars i:last-child{opacity:1}
+form.inline{display:flex;gap:8px;align-items:center;margin-top:6px}
+form.inline .pin{width:120px;min-height:36px}
