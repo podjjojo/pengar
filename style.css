@@ -216,3 +216,18 @@ button.working::after{content:" …"}
 .prow{padding:12px 0;border-top:1px solid var(--line,rgba(255,255,255,.08))}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 .g3 input{min-width:0}
+
+/* ---- Visuella förbättringar: rörelse, glöd och djup. Respekterar reducerad rörelse. ---- */
+@keyframes viewIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes glowPulse{0%,100%{filter:drop-shadow(0 0 0 rgba(123,235,192,0))}50%{filter:drop-shadow(0 0 8px rgba(123,235,192,.55))}}
+main>*{animation:viewIn .36s cubic-bezier(.2,.8,.2,1) both}
+main>*:nth-child(2){animation-delay:.04s}main>*:nth-child(3){animation-delay:.08s}main>*:nth-child(4){animation-delay:.12s}
+.track>div{background:linear-gradient(90deg,#1D8F66,var(--accent))}
+.track.slim>div{border-radius:3px}
+.ring.ok .arc{animation:glowPulse 3.2s ease-in-out infinite}
+.card{transition:transform .2s ease,box-shadow .2s ease}
+button{transition:transform .12s ease,filter .2s ease}
+button:active{transform:scale(.97)}
+.mini{transition:transform .2s ease}
+.mini:active{transform:scale(.985)}
+@media (prefers-reduced-motion:reduce){main>*,.ring.ok .arc{animation:none!important}}
