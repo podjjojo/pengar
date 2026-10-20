@@ -231,3 +231,15 @@ button:active{transform:scale(.97)}
 .mini{transition:transform .2s ease}
 .mini:active{transform:scale(.985)}
 @media (prefers-reduced-motion:reduce){main>*,.ring.ok .arc{animation:none!important}}
+
+/* ---- Menyraden: stabil på iPhone, glasig, med puls på plusknappen ---- */
+nav{position:fixed;bottom:0;transform:translate3d(0,0,0);-webkit-transform:translate3d(0,0,0);backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:transform;background:color-mix(in srgb,var(--card) 84%,transparent);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);z-index:20}
+nav .fab{position:relative}
+nav .fab::after{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid var(--accent);opacity:0;animation:fabPulse 2.8s ease-out infinite;pointer-events:none}
+@keyframes fabPulse{0%{transform:scale(.9);opacity:.6}70%,100%{transform:scale(1.35);opacity:0}}
+
+/* ---- Huvudkortet: en långsamt rörlig glöd i bakgrunden ---- */
+@keyframes meshMove{0%{background-position:0% 0%,50% 50%}100%{background-position:100% 60%,0% 40%}}
+.card.hero{background:radial-gradient(60% 60% at 15% 0%,rgba(123,235,192,.16),transparent 70%),radial-gradient(50% 50% at 90% 100%,rgba(224,51,138,.10),transparent 70%),var(--card);background-size:160% 160%,140% 140%,100% 100%;animation:meshMove 16s ease-in-out infinite alternate}
+
+@media (prefers-reduced-motion:reduce){nav .fab::after,.card.hero{animation:none!important}}
