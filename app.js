@@ -53,7 +53,7 @@ function Xn(t){if(t.length>1&&t[0]===255&&t[1]===254)return new TextDecoder("utf
       <div class="big">\u2013<span>kr</span></div>
       <p class="muted small">L\xE4gg in l\xF6nen n\xE4r den kommer, s\xE5 r\xE4knar appen ut hur mycket du kan spendera varje dag fram till n\xE4sta l\xF6n.</p>
       <button data-nav="startmonth">Starta m\xE5naden</button>
-    </section>`;let{plan:r,endsOn:e,m:a,pace:n}=t,o=x()>=e,i=$e==="idag"?r.leftTodayOre:$e==="sju"?r.dailyOre*Math.min(7,r.daysLeft)-r.spentTodayOre:r.remainingOre,l=$e==="idag"?"kvar att spendera idag":$e==="sju"?"kommande 7 dagar":"kvar till l\xF6n",c=$e==="idag"?`Dagsbudget ${m(r.dailyOre)}${r.spentTodayOre?`, spenderat idag ${m(r.spentTodayOre)}`:""}`:$e==="sju"?`${m(r.dailyOre)} per dag i ${Math.min(7,r.daysLeft)} dagar`:`${m(r.dailyOre)} per dag i ${r.daysLeft} dagar`,u=Math.round(r.dayNo/r.daysTotal*100),b=Math.max(1,a.start_balance_ore+a.salary_ore+r.extraIncomeOre-r.fixedOre-r.installmentsOre),k=Math.max(0,Math.min(1,$e==="idag"?r.leftTodayOre/Math.max(1,r.dailyOre):$e==="sju"?i/Math.max(1,r.dailyOre*Math.min(7,r.daysLeft)):i/b));return`
+    </section>`;let{plan:r,endsOn:e,m:a,pace:n}=t,o=x()>=e,i=$e==="idag"?r.leftTodayOre:$e==="sju"?r.dailyOre*Math.min(7,r.daysLeft)-r.spentTodayOre:r.remainingOre,l=$e==="idag"?"fritt utanf\xF6r budgeten idag":$e==="sju"?"fritt utanf\xF6r budgeten, 7 dagar":"fritt utanf\xF6r budgeten till l\xF6n",c=$e==="idag"?`Dagsbudget ${m(r.dailyOre)}${r.spentTodayOre?`, spenderat idag ${m(r.spentTodayOre)}`:""}`:$e==="sju"?`${m(r.dailyOre)} per dag i ${Math.min(7,r.daysLeft)} dagar`:`${m(r.dailyOre)} per dag i ${r.daysLeft} dagar`,u=Math.round(r.dayNo/r.daysTotal*100),b=Math.max(1,a.start_balance_ore+a.salary_ore+r.extraIncomeOre-r.fixedOre-r.installmentsOre),k=Math.max(0,Math.min(1,$e==="idag"?r.leftTodayOre/Math.max(1,r.dailyOre):$e==="sju"?i/Math.max(1,r.dailyOre*Math.min(7,r.daysLeft)):i/b));return`
     <section class="card hero">
       <h2>Kvar per dag</h2>
       <div class="seg">${["idag","sju","lon"].map(_=>`<button data-range="${_}" aria-pressed="${$e===_}" class="${$e===_?"on":""}">${{idag:"Per dag",sju:"7 dagar",lon:"Till l\xF6n"}[_]}</button>`).join("")}</div>
@@ -64,11 +64,11 @@ function Xn(t){if(t.length>1&&t[0]===255&&t[1]===254)return new TextDecoder("utf
         <div class="track"><div style="width:${u}%"></div></div>
       </div>
       <div class="grid2">
-        <div class="mini"><div class="muted">Kvar efter budget</div><b>${m(r.remainingOre)}</b></div>
+        <div class="mini"><div class="muted">Fritt utanf\xF6r budgeten</div><b>${m(r.remainingOre)}</b></div>
         <div class="mini"><div class="muted">Faktiskt kvar</div><b>${m(r.actualLeftOre)}</b></div>
       </div>
       ${ao(r,n)}
-      <details class="calc"><summary>Se utr\xE4kningen</summary><p class="muted small">Kvar efter budget \xE4r det som \xE4r fritt n\xE4r mat och andra budgetar \xE4r reserverade. Faktiskt kvar \xE4r pengarna efter fasta utgifter och det du hittills spenderat. ${r.daysLeft} dagar kvar. Start ${m(a.start_balance_ore)} + l\xF6n ${m(a.salary_ore)} \u2212 fasta ${m(r.fixedOre)} \u2212 avbetalningar ${m(r.installmentsOre)}${r.reservedOre?` \u2212 budgeterat ${m(r.reservedOre)}`:""} \u2212 \xF6vrigt spenderat ${m(r.spentOre-r.budgetLines.reduce((_,w)=>_+w.spentOre,0))}.</p></details>
+      <details class="calc"><summary>Se utr\xE4kningen</summary><p class="muted small">Fritt utanf\xF6r budgeten \xE4r pengar som inte \xE4r reserverade f\xF6r n\xE5gon budgetkategori. Pengar inom budgetarna syns i budgetraderna. Faktiskt kvar \xE4r allt p\xE5 kontot efter fasta utgifter och det du hittills spenderat, b\xE5de inom och utanf\xF6r budgeten. ${r.daysLeft} dagar kvar. Start ${m(a.start_balance_ore)} + l\xF6n ${m(a.salary_ore)} \u2212 fasta ${m(r.fixedOre)} \u2212 avbetalningar ${m(r.installmentsOre)}${r.reservedOre?` \u2212 budgeterat ${m(r.reservedOre)}`:""} \u2212 \xF6vrigt spenderat ${m(r.spentOre-r.budgetLines.reduce((_,w)=>_+w.spentOre,0))}.</p></details>
       <details class="calc"><summary>\xC4ndra m\xE5nadens start, l\xF6n eller saldo</summary>
         <form id="editmonth" class="stack">
           <p class="muted small">R\xE4tta det du angav n\xE4r du startade m\xE5naden. Startar du mitt i en m\xE5nad: skriv dagens datum och 0 i l\xF6n. Datumet best\xE4mmer vilka fasta poster och avbetalningar som r\xE4knas med.</p>
@@ -115,7 +115,7 @@ function Xn(t){if(t.length>1&&t[0]===255&&t[1]===254)return new TextDecoder("utf
         <div class="row"><span>Avbetalningar</span><span class="num">\u2212${m(t.plan.installmentsOre)}</span></div>
         <div class="row"><span>Budgeterat</span><span class="num">\u2212${m(t.plan.reservedOre)}</span></div>
         <div class="row"><span>\xD6vrigt spenderat</span><span class="num">\u2212${m(t.plan.spentOre-t.plan.budgetLines.reduce((l,c)=>l+c.spentOre,0))}</span></div>
-        <div class="row total"><b>Kvar efter budget</b><b class="num">${m(t.plan.remainingOre)}</b></div>
+        <div class="row total"><b>Fritt utanf\xF6r budgeten</b><b class="num">${m(t.plan.remainingOre)}</b></div>
         <div class="muted small">Faktiskt kvar ${m(t.plan.actualLeftOre)}. Till ${d(F(t.endsOn))}.</div></section>`:'<section class="card"><h2>M\xE5naden</h2><p class="muted small">Ingen m\xE5nad p\xE5g\xE5r. L\xE4gg in l\xF6nen s\xE5 r\xE4knas allt ut.</p><button data-nav="startmonth">Starta m\xE5naden</button></section>',e=-wn(),a=(l,c,u,b)=>`<button class="tilebtn" data-nav="${l}"><span class="muted">${c}</span><b>${u}</b><small class="muted">${b}</small></button>`,n=V.filter(l=>!ce.includes(l.kind)),s=$n(n),o=n.filter(l=>s.has(l.id)).map(l=>`<div class="mini"><div class="muted">${d(l.name)}</div><b>${m(s.get(l.id))}</b></div>`).join(""),i=an();return`
     ${to()}
     <div class="grid2">
