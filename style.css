@@ -246,3 +246,12 @@ nav .fab::after{content:"";position:absolute;inset:-6px;border-radius:50%;border
 
 /* Beloppen i listor har fast bredd, så att stapelspåren blir lika långa på alla rader */
 .li>b.num:last-child{flex:0 0 112px;text-align:right}
+
+/* Hem-korten: utmaning, ovanligt köp, svit och förra månaden */
+.card.challenge { background: linear-gradient(135deg, rgba(123,235,192,.22), rgba(224,51,138,.12)); }
+.card.odd { border-color: rgba(224,51,138,.5); }
+.card.story { background: linear-gradient(160deg, rgba(122,140,255,.22), rgba(123,235,192,.12)); }
+.card.streak svg { transform-origin: 50% 90%; animation: sway 4s ease-in-out infinite; }
+@keyframes sway { 0%, 100% { transform: rotate(-2.5deg); } 50% { transform: rotate(2.5deg); } }
+.card.challenge .btnrow button, .card.story .btnrow button { box-shadow: 0 6px 16px rgba(123,235,192,.25); }
+@media (prefers-reduced-motion: reduce) { .card.streak svg { animation: none; } }
